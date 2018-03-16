@@ -565,7 +565,7 @@ def _recreate_pygpu_array(context_name, content):
     return pygpu.gpuarray.array(content, context=context)
 
 _ARRAY_TYPE_MAP = {numpy.ndarray: 'numpy_ndarray'}
-_INVERSE_ARRAY_TYPE_MAP = {'numpy_ndarray': _recreate_numpy_ndarray, 'cuda_ndarray': _recreate_numpy_ndarray}
+_INVERSE_ARRAY_TYPE_MAP = {'numpy_ndarray': _recreate_numpy_ndarray}
 if cuda_ndarray:
     _ARRAY_TYPE_MAP[cuda_ndarray.cuda_ndarray.CudaNdarray] = 'cuda_ndarray'
     _INVERSE_ARRAY_TYPE_MAP['cuda_ndarray'] = _recreate_cuda_ndarray
